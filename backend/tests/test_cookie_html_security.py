@@ -55,7 +55,7 @@ class AdminCookieAndHtmlSecurityTests(unittest.TestCase):
                     item for item in module.app.user_middleware
                     if item.cls is SessionMiddleware
                 )
-                self.assertIs(middleware.options['https_only'], expected)
+                self.assertIs(middleware.kwargs['https_only'], expected)
 
     def test_home_escapes_html_in_discord_username(self):
         module = self.load({
